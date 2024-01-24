@@ -105,7 +105,7 @@ public class HandMenu : MonoBehaviour
         scrollControl = scrollButton.GetComponent<ButtonControl>();
         scrollButton.transform.localScale = smallButtonSize;
         scrollControl.SetHandMenu(this);
-        scrollControl.SetAnimate(true);
+        scrollControl.SetAnimate(true, 1.04f);
         scrollControl.SetCollisionDetection(true);
         scrollControl.GetEventObject().AddListener(OnScroll);
 
@@ -115,6 +115,7 @@ public class HandMenu : MonoBehaviour
             button = Instantiate(hingeButton);
             button.name = i.ToString();
             ButtonControl control = button.GetComponent<ButtonControl>();
+            control.SetAnimate(false, 1.2f);
             switch (i)
             {
                 case 0:
@@ -125,27 +126,22 @@ public class HandMenu : MonoBehaviour
                     }
                 case 1:
                     {
-                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";
-                        
+                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";                        
                         break;
                     }
                 case 2:
                     {
-                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";
-                        
+                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";                        
                         break;
                     }
                 case 3:
                     {
-
-                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";
-                        //control.onPressed.AddListener(OnExit);
+                        button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";                        
                         break;
                     }
                 case 4:
                     {
                         button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Inactive";
-                        //control.onPressed.AddListener(OnExit);
                         break;
                     }
                 case 5:

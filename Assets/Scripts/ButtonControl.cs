@@ -27,6 +27,7 @@ public class ButtonControl : MonoBehaviour
     bool detectCollisions = false;
     bool checkedState = false;
     Vector3 originalScale;
+    float factor = 1.02f;
 
     public void SetChecked(bool b)
     {
@@ -43,9 +44,10 @@ public class ButtonControl : MonoBehaviour
         return onPressed;
     }
 
-    public void SetAnimate(bool b)
+    public void SetAnimate(bool b, float f)
     {
         animatePress = b;
+        factor = f;
     }
 
     public bool GetCheckedState()
@@ -82,16 +84,14 @@ public class ButtonControl : MonoBehaviour
     private void Start()
     {
         isPressed = false;
-        SetCollisionDetection(true);
-        SetAnimate(true);
+        SetCollisionDetection(true);        
         originalScale = transform.localScale;         
     }
 
     private void Update()
     {
         if (isPressed && animatePress)
-        {           
-            float factor = 1.02f;
+        {                       
             Vector3 scale = gameObject.transform.localScale;
             scale = new Vector3(scale.x * factor, scale.y * factor, scale.z * factor);
             gameObject.transform.localScale = scale;
